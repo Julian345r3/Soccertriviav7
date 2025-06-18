@@ -1,8 +1,9 @@
     [build]
-      command = "npm install --legacy-peer-deps && npm run build"
+      command = "npm install && npm run build"
       publish = "build"
 
     [build.environment]
       NODE_VERSION = "20"
-      # PYTHON_VERSION = "3.9" # We'll try commenting this out first
+      NPM_FLAGS = "--legacy-peer-deps"
+      # PYTHON_VERSION = "3.9" # Keep this commented out unless a Python error explicitly reappears
     
