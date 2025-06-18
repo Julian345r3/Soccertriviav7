@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#3182CE" />
+    <meta
+      name="description"
+      content="Soccer Trivia Challenge - Test your football knowledge!"
+    />
+    <link
+      rel="apple-touch-icon"
+      href="https://placehold.co/192x192/3182CE/FFFFFF?text=⚽"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <title>Soccer Trivia Challenge</title>
+    <!-- Add this line for Tailwind CSS! -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      /* Simple keyframe animations for better UI experience */
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes bounce {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      @keyframes confetti {
+        0% {
+          transform: translateY(0) rotate(0deg);
+          opacity: 1;
+        }
+        100% {
+          transform: translateY(1000px) rotate(720deg);
+          opacity: 0;
+        }
+      }
+
+      @keyframes pulse-glow {
+        0%,
+        100% {
+          box-shadow: 0 0 10px rgba(255, 0, 0, 0.5),
+            0 0 20px rgba(255, 0, 0, 0.3), 0 0 30px rgba(255, 0, 0, 0.1);
+          opacity: 0.7;
+        }
+        50% {
+          box-shadow: 0 0 20px rgba(255, 0, 0, 0.8),
+            0 0 40px rgba(255, 0, 0, 0.6), 0 0 60px rgba(255, 0, 0, 0.4);
+          opacity: 0.9;
+        }
+      }
+
+      .animate-fade-in {
+        animation: fadeIn 0.5s ease-out forwards;
+      }
+
+      .animate-bounce {
+        animation: bounce 1s infinite;
+      }
+
+      .animate-confetti {
+        animation: confetti var(--animation-duration, 1.5s) ease-out
+          var(--animation-delay, 0s) forwards;
+      }
+      .animate-pulse-glow {
+        animation: pulse-glow 2s infinite alternate;
+      }
+    </style>
+  </head>
+  <body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="root"></div>
+
+    <script>
+      // Register the service worker
+      if ("serviceWorker" in navigator) {
+        window.addEventListener("load", () => {
+          // Changed the path from '/service-worker.js' to './service-worker.js'
+          // This makes the path relative to the current HTML document, which can resolve
+          // issues with inconsistent base URLs in certain hosting/sandbox environments.
+          navigator.serviceWorker
+            .register("./service-worker.js")
+            .then((registration) => {
+              console.log(
+                "Service Worker registered with scope:",
+                registration.scope
+              );
+            })
+            .catch((error) => {
+              console.error("Service Worker registration failed:", error);
+            });
+        });
+      }
+    </script>
+  </body>
+</html>
