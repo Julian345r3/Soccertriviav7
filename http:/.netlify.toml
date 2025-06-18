@@ -1,9 +1,40 @@
-    [build]
-      command = "npm install && npm run build"
-      publish = "build"
-
-    [build.environment]
-      NODE_VERSION = "20"
-      NPM_FLAGS = "--legacy-peer-deps"
-      # PYTHON_VERSION = "3.9" # Keep this commented out unless a Python error explicitly reappears
+    {
+      "name": "soccer-trivia-challenge",
+      "version": "0.1.0",
+      "private": true,
+      "dependencies": {
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-scripts": "5.0.1",
+        "web-vitals": "^2.1.4"
+      },
+      "devDependencies": {
+        "typescript": "4.9.5"
+      },
+      "scripts": {
+        "start": "react-scripts start",
+        "build": "react-scripts build",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject"
+      },
+      "eslintConfig": {
+        "extends": [
+          "react-app",
+          "react-app/jest"
+        ]
+      },
+      "browserslist": {
+        "production": [
+          ">0.2%",
+          "not dead",
+          "not op_mini all"
+        ],
+        "development": [
+          "last 1 chrome version",
+          "last 1 firefox version",
+          "last 1 safari version"
+        ]
+      },
+      "packageManager": "npm@10.9.2"
+    }
     
